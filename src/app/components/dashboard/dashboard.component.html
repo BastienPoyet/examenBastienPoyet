@@ -1,0 +1,50 @@
+<h2 class="text-center m-2">Liste du stock de PC</h2>
+<p class="text-center">Le nombre de PC en stock est de : {{nbreStock}}</p>
+<div class="text-center">
+  <a routerLink='/add' id="btnAjout" class="btn boutonsMaterial m-2">Ajouter un PC</a>
+</div>
+
+<ng-container *ngIf='!isLoading'>
+  <div class="d-flex justify-content-center m-2">
+    <div>
+      <table class="table text-center">
+        <thead >
+          <tr>
+            <th scope="col">Ref</th>
+            <th scope="col">Modèle</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Type</th>
+            <th scope="col">Catégorie</th>
+            <th scope="col">Prix Achat</th>
+            <th scope="col">Prix vente</th>
+            <th scope="col">Bénéfice</th>
+            <th scope="col">Date entrée stock</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let computer of computers' class="pc">            
+            <td>{{computer.id}}</td>
+            <td>{{computer.modele}}</td>
+            <td>{{computer.marque}}</td>
+            <td>{{computer.type}}</td>
+            <td>{{computer.category}}</td>
+            <td>{{computer.prixAchat|number : "1.2-2"}}€</td>
+            <td>{{computer.prixVente|number : "1.2-2"}}€</td>
+            <td>{{(computer.prixVente - computer.prixAchat)|number : "1.2-2"}}€</td>
+            <td>{{computer.dateEntreeStock|date:'dd/MM/yyyy'}}</td>
+            <td> 
+                <a [routerLink]="['/home/computer', computer.id]" id="btnDetail" class=" btn boutonsMaterial m-2"><fa-icon [icon]='faEye'></fa-icon></a>
+                <a [routerLink]="['/home/edit/computer', computer.id]" id="btnModify" class="btn boutonsMaterial m-2"><fa-icon [icon]='faEdit'></fa-icon></a>
+                <button (click)='deleteComputer(computer.id)' id="btnDelete" class="btn boutonsMaterial m-2"><fa-icon [icon]='faTrash'></fa-icon></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    
+</ng-container>
+<ng-container *ngIf='isLoading'>
+    <fa-icon [spin]='true' [icon]='faSpinner'></fa-icon>
+</ng-container>

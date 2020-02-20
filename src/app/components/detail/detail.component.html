@@ -1,0 +1,44 @@
+<h2 class="text-center mt-2">Détail du PC</h2>
+<ng-container *ngIf='!isLoading'>
+    <div id="conteneur" class="mx-auto mt-2 text-center">
+        <div class="m-2">
+            <span class="label">Référence du PC :</span>
+             <br>  <span class="reponse">{{computer.id}}</span>
+        </div>
+        <div class="m-2">
+            <span class="label">Modèle du PC :</span>
+             <br>  <span class="reponse">{{computer.modele}}</span>
+        </div>
+        <div class="m-2">
+            <span class="label">Marque du PC :</span>
+             <br>  <span class="reponse">{{computer.marque}}</span>
+        </div>
+        <div class="m-2">
+            <span class="label">Type du PC :</span>
+             <br>  <span class="reponse">{{computer.type}}</span>
+        </div>
+        <div class="m-2">
+            <span class="label">Catégorie du PC:</span>
+             <br>  <span class="reponse">{{computer.category}}</span>
+        </div>
+        <div class="m-2">
+            <span class="label">Prix d'achat du PC:</span>
+             <br>  <span class="reponse">{{computer.prixAchat|number : "1.2-2"}}€</span>
+        </div>
+        <div class="m-2">
+            <span class="label">Prix de vente du PC:</span>
+             <br>  <span class="reponse">{{computer.prixVente|number : "1.2-2"}}€</span>
+        </div>
+        <div class="m-2">
+            <span class="label">Bénéfice:</span>
+             <br>  <span class="reponse">{{(computer.prixVente - computer.prixAchat)|number : "1.2-2"}}€</span>
+        </div>
+        <div class="m-2">
+            <span class="label">Date  entrée stock :</span>
+             <br>  <span class="reponse">{{computer.dateEntreeStock|date:'dd/MM/yyyy'}}</span>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf='isLoading'>
+
+</ng-container>

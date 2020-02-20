@@ -1,0 +1,44 @@
+{
+  "computers": [
+    {
+      "id": 1,
+      "modele": "Latitude 3500-15.6",
+      "marque": "Dell",
+      "type": "Portable",
+      "category": "Bureautique",
+      "prixAchat": 120.88,
+      "prixVente": 300.1,
+      "dateEntreeStock": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 2,
+      "modele": "test1",
+      "marque": "Hp",
+      "type": "Portable",
+      "category": "Gaming",
+      "prixAchat": 450,
+      "prixVente": 1000,
+      "dateEntreeStock": "2020-02-20T11:24:48.982Z"
+    },
+    {
+      "id": 3,
+      "modele": "test2",
+      "marque": "Apple",
+      "type": "Tablette hybride",
+      "category": "Bureautique",
+      "prixAchat": 700,
+      "prixVente": 1400,
+      "dateEntreeStock": "2020-02-20T11:25:13.430Z"
+    },
+    {
+      "id": 4,
+      "modele": "test3",
+      "marque": "Apple",
+      "type": "Portable",
+      "category": "Bureautique",
+      "prixAchat": 800,
+      "prixVente": 1645,
+      "dateEntreeStock": "2020-02-20T12:40:35.915Z"
+    }
+  ]
+}

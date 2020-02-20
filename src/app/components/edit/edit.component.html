@@ -1,0 +1,70 @@
+<ng-container *ngIf='!isLoading'>
+    <h2 class="text-center mt-4">Modifier un PC</h2>
+<form #validationComputer="ngForm" (ngSubmit)="onSubmit()" class="text-center my-4">
+    <div class="form-group">
+        <label for="modele">Modèle :</label>
+        <input type="text" class="form-control" name="modele"  id="modele" required [(ngModel)]="computerForm.modele" #modele="ngModel">
+        <div [hidden]="modele.valid" class="alert alert-danger">       
+            Le modèle est requis   
+        </div> 
+    </div>
+    <div class="form-group ">
+        <p>Marque :</p> 
+        <div class="d-flex flex-row mb-3 justify-content-center">
+            <div *ngFor='let valeur of marquesDispo'>
+                <input type="radio" class="form-control marque m-2" name="marque" value="{{valeur}}" id="{{valeur}}" required [(ngModel)]="computerForm.marque" #marque="ngModel">
+                <label class='m-2'for="{{valeur}}">{{valeur}}</label>
+            </div>
+        </div>
+        <div [hidden]="validationComputer.controls.marque?.valid" class="alert alert-danger">       
+            La marque est requise.  
+        </div> 
+         
+    </div>
+    <div class="form-group">
+        <select  class="form-control" name="type" id="type" required [(ngModel)]="computerForm.type" #type="ngModel" placeholder="Type">
+            <option value="" [selected]='!type.valid'>Choisissez le type :</option>
+            <option *ngFor='let valeur of typesDispo' value="{{valeur}}">{{valeur}}</option>
+        </select>
+        <div [hidden]="type.valid" class="alert alert-danger">       
+            Le type est requis. 
+        </div> 
+    </div>
+    <div class="form-group ">
+        <p>Catégorie :</p> 
+        <div class="d-flex flex-row mb-3 justify-content-center">
+            <div *ngFor='let valeur of categoriesDispo'>
+                <input type="radio" class="form-control m-2" name="category" value="{{valeur}}" id="{{valeur}}" required [(ngModel)]="computerForm.category" #category="ngModel">
+                <label class='m-2'for="{{valeur}}">{{valeur}}</label>
+            </div>
+        </div> 
+        <div [hidden]="validationComputer.controls.category?.valid" class="alert alert-danger">       
+            La catégorie est requise. 
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="prixAchat">Prix d'achat :</label>
+        <input type="number" class="form-control" name="prixAchat"  id="prixAchat"  required [(ngModel)]="computerForm.prixAchat" #prixAchat="ngModel">
+        <div [hidden]="prixAchat.valid" class="alert alert-danger">       
+            Le prix d'achat est requis.  
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="prixVente">Prix de vente :</label>
+        <input type="number" class="form-control" name="prixVente"  id="prixVente"  required [(ngModel)]="computerForm.prixVente" #prixVente="ngModel">
+        <div [hidden]="prixVente.valid" class="alert alert-danger">       
+            Le prix de vente est requis.  
+        </div> 
+    </div>
+
+    <div  class="form-group">
+        <input type="submit" id="submitBtn2" value="Modifier PC" class="btn boutonsMaterial" [disabled]=!validationComputer.valid>
+    </div>
+
+</form>
+</ng-container>
+<ng-container *ngIf='isLoading'>
+    <fa-icon [spin]='true' [icon]='faSpinner'></fa-icon>
+</ng-container>
+
+

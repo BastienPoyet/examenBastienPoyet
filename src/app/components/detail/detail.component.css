@@ -1,0 +1,15 @@
+#conteneur{
+    border: 5px solid white;
+    width: 500px;
+    background-color: #1565c0;
+    color: white;
+    padding: 20px;
+}
+.label{
+    
+    font-size: 20px;
+    color: black;
+}
+.reponse{
+    font-weight: bold;
+}
